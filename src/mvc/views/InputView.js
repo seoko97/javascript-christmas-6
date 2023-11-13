@@ -10,7 +10,6 @@ const InputView = {
     const input = await readLineAsync(INPUT.date);
 
     InputValidate.isNotNumberDate(input);
-    InputValidate.isNotValidDate(input);
 
     return Number(input);
   },
