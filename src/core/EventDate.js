@@ -1,5 +1,5 @@
 import { EVENT_DATE } from '../constants/event.js';
-import InputValidate from '../utils/validate/InputValidate.js';
+import DateValidate from '../utils/validate/DateValidate.js';
 
 class EventDate {
   #date;
@@ -22,7 +22,7 @@ class EventDate {
   }
 
   #validate(day) {
-    InputValidate.isNotValidDate(day);
+    DateValidate.isNotValidDate(day);
   }
 }
 

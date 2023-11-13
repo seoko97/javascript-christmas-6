@@ -14,13 +14,14 @@ class OrderValidate {
     throwError(ERROR.invalid_order, !isValid);
   }
 
-  static isExceedMenuCount(orders) {
+  static isLessThanMinMenuCount(count) {
+    throwError(ERROR.invalid_order, count < MIN_MENU_COUNT);
+  }
+
+  static isExceedMaxMenuCount(orders) {
     const menuCount = orders.reduce((acc, cur) => acc + cur.count, 0);
 
-    throwError(
-      ERROR.exceed_menu,
-      menuCount < MIN_MENU_COUNT || menuCount > MAX_MENU_COUNT,
-    );
+    throwError(ERROR.exceed_menu, menuCount > MAX_MENU_COUNT);
   }
 
   static isDuplicatedMenu(orders) {

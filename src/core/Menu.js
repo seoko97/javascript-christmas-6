@@ -6,10 +6,10 @@ class Menu {
 
   #count;
 
-  constructor({ name, count }) {
-    this.#validate(name);
-    this.#detail = MENU.find((menu) => menu.name === name);
-    this.#count = count;
+  constructor(newMenu) {
+    this.#validate(newMenu);
+    this.#detail = MENU.find((menu) => menu.name === newMenu.name);
+    this.#count = newMenu.count;
   }
 
   getInfo() {
@@ -36,8 +36,9 @@ class Menu {
     return this.#detail.course === courseName;
   }
 
-  #validate(name) {
-    OrderValidate.isNotValidMenuName(name);
+  #validate(menu) {
+    OrderValidate.isLessThanMinMenuCount(menu.count);
+    OrderValidate.isNotValidMenuName(menu.name);
   }
 }
 
