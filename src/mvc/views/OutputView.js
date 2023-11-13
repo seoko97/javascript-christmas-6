@@ -6,9 +6,7 @@ const OutputView = {
   printOrderMenu(order) {
     printMessage(OUTPUT.order_menu);
 
-    const message = order
-      .map((menu) => this.generateMenuMessage(menu))
-      .join('\n');
+    const message = order.map(this.generateMenuMessage.bind(this)).join('\n');
 
     printMessage(message);
   },
@@ -51,11 +49,9 @@ const OutputView = {
       return;
     }
 
-    const message = filteredEvents
-      .map((event) => this.generateBenefitDetail(event))
-      .join('\n');
+    const message = filteredEvents.map(this.generateBenefitDetail.bind(this));
 
-    printMessage(message);
+    printMessage(message.join('\n'));
   },
 
   printTotalBenefit(price) {
