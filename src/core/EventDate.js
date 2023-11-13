@@ -22,7 +22,7 @@ class EventDate {
   }
 
   #validate(day) {
-    DateValidate.isNotValidDate(day);
+    DateValidate.isNotRange(day);
   }
 }
 

@@ -3,7 +3,7 @@ import { EVENT_DATE } from '../../constants/event.js';
 import { throwError } from '../index.js';
 
 class DateValidate {
-  static isNotValidDate(date) {
+  static isNotRange(date) {
     throwError(
       ERROR.invalid_date,
       date < EVENT_DATE.min_date || date > EVENT_DATE.max_date,
